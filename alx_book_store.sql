@@ -20,12 +20,11 @@ CREATE TABLE Customers(
     email VARCHAR(215),
     address TEXT
 )
-CREATE TABLE Orders(
+CREATE TABLE IF NOT EXISTS Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
-    order_date DATE,
     customer_id INT,
-    FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
-    
+    order_date DATE,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 )
 CREATE TABLE Order_Details(
     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
